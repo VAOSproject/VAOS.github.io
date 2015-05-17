@@ -19,6 +19,9 @@
       <h1>
 <a id="software" class="anchor" href="#software" aria-hidden="true"><span class="octicon octicon-link"></span></a>Software</h1>
 
+<h1>
+<a id="the-program-itself-will-be-published-soon" class="anchor" href="#the-program-itself-will-be-published-soon" aria-hidden="true"><span class="octicon octicon-link"></span></a>THE PROGRAM ITSELF WILL BE PUBLISHED SOON</h1>
+
 <h2>
 <a id="instalation" class="anchor" href="#instalation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instalation</h2>
 
@@ -30,6 +33,7 @@
 <pre><code>sudo apt-get install python-dev
 sudo apt-get install python-setuptools
 sudo apt-get install python-pip
+sudo pip install --upgrade pip
 </code></pre>
 
 <h3>
@@ -44,15 +48,6 @@ sudo apt-get install libportaudio0 libportaudio2 libportaudiocpp0 portaudio19-de
 cd pyaudio/
 sudo python setup.py install
 </code></pre>
-
-<p><a href="https://pypi.python.org/pypi/SpeechRecognition/">SpeechRecognition as stt (speech to text)</a></p>
-
-<pre><code>$ git clone https://github.com/Uberi/speech_recognition.git
-$ cd speech_recognition
-$ sudo python setup.py install
-</code></pre>
-
-<p>To test if this works, download and run this file </p>
 
 <p><a href="http://www.pygame.org/tags/pygame">Pygame for playing sound/music</a></p>
 
@@ -69,6 +64,13 @@ sudo python setup.py install
 <p><a href="https://pypi.python.org/pypi/wolframalpha">Wolframalpha API</a></p>
 
 <pre><code>sudo pip install wolframalpha
+</code></pre>
+
+<p><a href="https://github.com/tweepy/tweepy">Tweepy for using twitter</a></p>
+
+<pre><code>git clone https://github.com/tweepy/tweepy.git
+cd tweepy
+python setup.py install
 </code></pre>
 
 <p><a href="https://pypi.python.org/pypi/goslate">Goslate as a translator (google)</a></p>
@@ -96,6 +98,21 @@ sudo python setup.py install
 <p><strong>Festival (Offline)</strong></p>
 
 <pre><code>sudo apt-get install festival festvox-don
+</code></pre>
+
+<h3>
+<a id="stt" class="anchor" href="#stt" aria-hidden="true"><span class="octicon octicon-link"></span></a>STT</h3>
+
+<p><a href="https://pypi.python.org/pypi/SpeechRecognition/">SpeechRecognition as stt (speech to text)</a></p>
+
+<pre><code>git clone https://github.com/Uberi/speech_recognition.git
+cd speech_recognition
+sudo python setup.py install
+</code></pre>
+
+<p><strong>Flac to use google stt</strong></p>
+
+<pre><code>sudo apt-get install flac
 </code></pre>
 
       <footer class="site-footer">
