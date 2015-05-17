@@ -17,6 +17,23 @@
 
     <section class="main-content">
       <h1>
+<a id="hardware" class="anchor" href="#hardware" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hardware</h1>
+
+<h2>
+<a id="components" class="anchor" href="#components" aria-hidden="true"><span class="octicon octicon-link"></span></a>Components</h2>
+
+<ul>
+<li>Raspberry pi (At least model B)</li>
+<li>SD Card (4GB at least)</li>
+<li>USB Wall Charger Adapter(2A recomended)</li>
+<li>USB-micro USB cable</li>
+<li><a href="http://www.amazon.com/Edimax-EW-7811Un-150Mbps-Raspberry-Supports/dp/B003MTTJOY/ref=sr_1_1?ie=UTF8&amp;qid=1431897205&amp;sr=8-1&amp;keywords=Edimax+EW-7811UN">USB wifi adapter</a></li>
+<li><a href="http://www.amazon.com/Virtual-5-1-surround-External-Sound-Card/dp/B000N35A0Y/ref=sr_1_4?ie=UTF8&amp;qid=1431897616&amp;sr=8-4&amp;keywords=usb+sound+card">USB External Sound Card</a></li>
+<li>Microphone (jack3.5)</li>
+<li><a href="http://www.amazon.com/X-mini-XAM16-GM-B-Portable-Capsule-Speaker/dp/B00GSIKNHS/ref=sr_1_1?ie=UTF8&amp;qid=1431897534&amp;sr=8-1&amp;keywords=x-mini+me">Self Powered Speakers</a></li>
+</ul>
+
+<h1>
 <a id="software" class="anchor" href="#software" aria-hidden="true"><span class="octicon octicon-link"></span></a>Software</h1>
 
 <h1>
@@ -24,6 +41,9 @@
 
 <h2>
 <a id="instalation" class="anchor" href="#instalation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Instalation</h2>
+
+<h3>
+<a id="if-you-are-running-it-on-a-raspberry-pi-you-need-to-install-raspbian" class="anchor" href="#if-you-are-running-it-on-a-raspberry-pi-you-need-to-install-raspbian" aria-hidden="true"><span class="octicon octicon-link"></span></a>If you are running it on a raspberry pi, you need to install raspbian</h3>
 
 <p>First of all you must have python 2.7 installed on your computer. To check this type <code>python --version</code> in the terminal. If it is not installed just google how to install it on your linux distro.</p>
 
@@ -39,9 +59,8 @@ sudo pip install --upgrade pip
 <h3>
 <a id="required-modules" class="anchor" href="#required-modules" aria-hidden="true"><span class="octicon octicon-link"></span></a>Required modules</h3>
 
-<p>To prevent errors, we're installing all the modules manually instead of using pip:</p>
-
-<p><a href="http://people.csail.mit.edu/hubert/pyaudio/">PyAudio to use the microphone</a></p>
+<p>To prevent errors, we're installing all the modules manually instead of using pip
+<a href="http://people.csail.mit.edu/hubert/pyaudio/">PyAudio to use the microphone</a></p>
 
 <pre><code>sudo apt-get install git
 git clone http://people.csail.mit.edu/hubert/git/pyaudio.git
@@ -89,7 +108,7 @@ python setup.py install
 sudo apt-get install mplayer
 </code></pre>
 
-<p><strong>Pyttsx (Offline)</strong></p>
+<p><strong>Pyttsx fork (Offline)</strong></p>
 
 <pre><code>git clone https://github.com/parente/pyttsx.git
 cd pyttsx 
@@ -115,6 +134,56 @@ sudo python setup.py install
 
 <pre><code>sudo apt-get install flac
 </code></pre>
+
+<h2>
+<a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h2>
+
+<h3>
+<a id="usb-sound-card" class="anchor" href="#usb-sound-card" aria-hidden="true"><span class="octicon octicon-link"></span></a>USB Sound Card</h3>
+
+<p>If you´re using a raspberry you´ll need to set up usb sound card:
+Connect it to the USB port, and check if it´s recognized:</p>
+
+<pre><code>lsusb
+</code></pre>
+
+<p>If you see a <code>Audio Adapter</code> or something like this, it´s fine.
+Now we need to set this as the main soundcard, so we open alsa-base.conf</p>
+
+<pre><code>sudo nano /etc/modprobe.d/alsa-base.conf
+</code></pre>
+
+<p>Change the following line:</p>
+
+<pre><code>options snd-usb-audio index=-2
+</code></pre>
+
+<p>To this:</p>
+
+<pre><code>options snd-usb-audio index=0
+options snd_bcm2835 index=1
+</code></pre>
+
+<p>Reboot the raspberry <code>sudo reboot</code>
+After this, we need to adjust the volume, so open alsamixer:</p>
+
+<pre><code>alsamixer
+</code></pre>
+
+<p>Adjust the speaker and mic volume with left/right and up/down keys, press esc, and to save it: </p>
+
+<pre><code>sudo alsactl store
+</code></pre>
+
+<p>Next, test that recording and playing audio works well:</p>
+
+<pre><code>arecord temp.wav
+</code></pre>
+
+<pre><code>aplay -D hw:1,0 temp.wav
+</code></pre>
+
+<p>Once that this works, we can download and setup the program itself.</p>
 
       <footer class="site-footer">
 
