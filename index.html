@@ -141,6 +141,17 @@ sudo python setup.py install
 <pre><code>sudo apt-get install flac
 </code></pre>
 
+<h3>
+<a id="gpio" class="anchor" href="#gpio" aria-hidden="true"><span class="octicon octicon-link"></span></a>GPIO</h3>
+
+<p><a href="https://pypi.python.org/pypi/RPi.GPIO">RPi.GPIO for using the Button to stop/play music</a></p>
+
+<pre><code>wget https://pypi.python.org/packages/source/R/RPi.GPIO/RPi.GPIO-0.5.11.tar.gz
+tar -xzvf RPi.GPIO-0.5.11.tar.gz
+cd RPi.GPIO-0.5.11
+sudo python setup.py install
+</code></pre>
+
 <h2>
 <a id="configuration" class="anchor" href="#configuration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Configuration</h2>
 
@@ -190,6 +201,35 @@ After this, we need to adjust the volume, so open alsamixer:</p>
 </code></pre>
 
 <p>Once that this works, we can download and setup the program itself.</p>
+
+<h2>
+<a id="setup-the-program" class="anchor" href="#setup-the-program" aria-hidden="true"><span class="octicon octicon-link"></span></a>Setup the program</h2>
+
+<p>First of all, open the profile.py file to configure the different options.</p>
+
+<h3>
+<a id="name---the-name-you-want-it-to-have-for-automatic-recognition" class="anchor" href="#name---the-name-you-want-it-to-have-for-automatic-recognition" aria-hidden="true"><span class="octicon octicon-link"></span></a>Name - The name you want it to have, for automatic recognition</h3>
+
+<h3>
+<a id="tts----you-can-choose-between-festival-google-or-pyttsx-you-have-to-write-them-like-this" class="anchor" href="#tts----you-can-choose-between-festival-google-or-pyttsx-you-have-to-write-them-like-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>TTS -  You can choose between FESTIVAL, GOOGLE or PYTTSX (You have to write them like this)</h3>
+
+<h3>
+<a id="auto-recognition---true-or-false-if-its-false-it-will-only-recognize-when-you-are-pushing-the-button-and-you-wont-need-to-say-the-name-otherwise-itll-recognize-when-it-hears-the-name-and-play-a-beep-sound" class="anchor" href="#auto-recognition---true-or-false-if-its-false-it-will-only-recognize-when-you-are-pushing-the-button-and-you-wont-need-to-say-the-name-otherwise-itll-recognize-when-it-hears-the-name-and-play-a-beep-sound" aria-hidden="true"><span class="octicon octicon-link"></span></a>Auto recognition - True or False. If it's False it will only recognize when you are pushing the button, and you won't need to say the name. Otherwise it'll recognize when it hears the name and play a beep sound.</h3>
+
+<h3>
+<a id="language---actually-it-just-works-on-spanish-as-you-have-to-translate-the-modules-and-the-brain-ive-given-up-with-this-project-but-you-can-fork-it-and-translate-it" class="anchor" href="#language---actually-it-just-works-on-spanish-as-you-have-to-translate-the-modules-and-the-brain-ive-given-up-with-this-project-but-you-can-fork-it-and-translate-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>Language - Actually it just works on Spanish as you have to translate the modules and the brain. I've given up with this project, but you can fork it and translate it.</h3>
+
+<h3>
+<a id="wolfram_api---youll-have-to-get-your-own-api-at-httpproductswolframalphacomapi" class="anchor" href="#wolfram_api---youll-have-to-get-your-own-api-at-httpproductswolframalphacomapi" aria-hidden="true"><span class="octicon octicon-link"></span></a>wolfram_api - You'll have to get your own API at <a href="http://products.wolframalpha.com/api/">http://products.wolframalpha.com/api/</a>
+</h3>
+
+<h3>
+<a id="notification_service---pushbullet-or-pushetta-youll-need-to-get-a-api-for-the-service-you-choose-just-google-for-that" class="anchor" href="#notification_service---pushbullet-or-pushetta-youll-need-to-get-a-api-for-the-service-you-choose-just-google-for-that" aria-hidden="true"><span class="octicon octicon-link"></span></a>notification_service - PUSHBULLET or PUSHETTA, you'll need to get a API for the service you choose. Just google for that.</h3>
+
+<h3>
+<a id="music" class="anchor" href="#music" aria-hidden="true"><span class="octicon octicon-link"></span></a>Music</h3>
+
+<p>For listening to your music you have to put all your mp3 files at a folder called "music"</p>
 
       <footer class="site-footer">
 
